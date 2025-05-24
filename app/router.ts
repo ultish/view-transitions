@@ -15,4 +15,7 @@ Router.map(function () {
   this.route('p1');
   this.route('p2');
   this.route('p3');
+  this.route('s1', function() {
+    this.route('s2');
+  });
 });

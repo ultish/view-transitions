@@ -5,6 +5,7 @@ html {
   view-transition-name: none;
 }
 
+/* when using "forwards" type, this transition will apply */
 :active-view-transition-type(forwards) {
   &::view-transition-old(page) {
     animation: slide-out-to-left 0.5s cubic-bezier(0.86, 0, 0.07, 1);
@@ -15,6 +16,7 @@ html {
   }
 }
 
+/* when using "backwards" type, this transition will apply */
 :active-view-transition-type(backwards) {
   &::view-transition-old(page) {
     animation: slide-out-to-right 0.5s cubic-bezier(0.86, 0, 0.07, 1);
@@ -23,14 +25,6 @@ html {
   &::view-transition-new(page) {
     animation: slide-in-from-left 0.5s cubic-bezier(0.86, 0, 0.07, 1);
   }
-}
-
-::view-transition-old(page) {
-  animation: slide-out 0.5s cubic-bezier(0.86, 0, 0.07, 1);
-}
-
-::view-transition-new(page) {
-  animation: slide-in 0.5s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
 /*
@@ -85,5 +79,65 @@ html {
 
   100% {
     transform: translateX(0%);
+  }
+}
+
+:active-view-transition-type(down) {
+  &::view-transition-old(page) {
+    animation: slide-up-out 0.5s ease-out forwards;
+  }
+
+  &::view-transition-new(page) {
+    animation: slide-up-in 0.5s ease-out forwards;
+  }
+}
+
+:active-view-transition-type(up) {
+  &::view-transition-old(page) {
+    animation: slide-down-out 0.5s ease-out forwards;
+  }
+
+  &::view-transition-new(page) {
+    animation: slide-down-in 0.5s ease-out forwards;
+  }
+}
+
+@keyframes slide-up-out {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slide-up-in {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down-out {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes slide-down-in {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
   }
 }

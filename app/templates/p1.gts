@@ -26,9 +26,6 @@ export default class RouteWizard1 extends Component {
 
   <template>
     <style>
-      :root {
-        --direction: -1;
-      }
       .page {
         view-transition-name: page;
       }

@@ -25,10 +25,6 @@ export default class RouteWizard2 extends Component {
   };
 
   go3 = (event: MouseEvent) => {
-    // With a transition:
-    // document.startViewTransition(() => {
-    //   this.router.transitionTo('p1');
-    // });
     document.startViewTransition({
       // @ts-expect-error: No types for these options yet
       update: () => {
@@ -40,10 +36,6 @@ export default class RouteWizard2 extends Component {
 
   <template>
     <style>
-      :root {
-        --direction: 1;
-      }
-
       .page {
         view-transition-name: page;
       }

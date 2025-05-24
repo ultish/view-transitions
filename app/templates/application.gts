@@ -14,6 +14,8 @@ export default Route(
 
     <LinkTo @route="p1" class="btn btn-primary">P1</LinkTo>
 
+    <LinkTo @route="s1" class="btn btn-primary">S1</LinkTo>
+
     {{outlet}}
   </template>,
 );
