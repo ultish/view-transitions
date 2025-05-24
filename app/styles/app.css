@@ -1,1 +1,89 @@
-/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+@import "tailwindcss";
+@plugin "daisyui";
+
+html {
+  view-transition-name: none;
+}
+
+:active-view-transition-type(forwards) {
+  &::view-transition-old(page) {
+    animation: slide-out-to-left 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+
+  &::view-transition-new(page) {
+    animation: slide-in-from-right 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+}
+
+:active-view-transition-type(backwards) {
+  &::view-transition-old(page) {
+    animation: slide-out-to-right 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+
+  &::view-transition-new(page) {
+    animation: slide-in-from-left 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+}
+
+::view-transition-old(page) {
+  animation: slide-out 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+::view-transition-new(page) {
+  animation: slide-in 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+/*
+@supports (view-transition-name: none) {
+  ::view-transition-old(wizard-content) {
+    animation: slide-out-left 0.5s ease-out both;
+  }
+
+  ::view-transition-new(wizard-content) {
+    animation: slide-in-right 0.5s ease-out both;
+  }
+} */
+
+@keyframes slide-out-to-left {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(calc(50% * -1));
+  }
+}
+
+@keyframes slide-out-to-right {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(calc(50% * 1));
+  }
+}
+
+@keyframes slide-in-from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(calc(-50% * -1));
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-in-from-left {
+  0% {
+    opacity: 0;
+    transform: translateX(calc(-50% * 1));
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
