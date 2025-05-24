@@ -83,21 +83,21 @@ html {
 }
 
 :active-view-transition-type(down) {
-  &::view-transition-old(page) {
+  &::view-transition-old(s) {
     animation: slide-up-out 0.5s ease-out forwards;
   }
 
-  &::view-transition-new(page) {
+  &::view-transition-new(s) {
     animation: slide-up-in 0.5s ease-out forwards;
   }
 }
 
 :active-view-transition-type(up) {
-  &::view-transition-old(page) {
+  &::view-transition-old(s) {
     animation: slide-down-out 0.5s ease-out forwards;
   }
 
-  &::view-transition-new(page) {
+  &::view-transition-new(s) {
     animation: slide-down-in 0.5s ease-out forwards;
   }
 }
@@ -109,12 +109,14 @@ html {
 
   to {
     transform: translateY(-100%);
+    opacity: 0;
   }
 }
 
 @keyframes slide-up-in {
   from {
     transform: translateY(100%);
+    opacity: 0;
   }
 
   to {
@@ -129,12 +131,14 @@ html {
 
   to {
     transform: translateY(100%);
+    opacity: 0;
   }
 }
 
 @keyframes slide-down-in {
   from {
     transform: translateY(-100%);
+    opacity: 0;
   }
 
   to {
