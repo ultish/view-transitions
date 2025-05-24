@@ -7,15 +7,10 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  this.route('wizard1', function () {
-    this.route('wizard2', function () {
-      this.route('wizard3');
-    });
-  });
   this.route('p1');
   this.route('p2');
   this.route('p3');
-  this.route('s1', function() {
+  this.route('s1', function () {
     this.route('s2');
   });
 });
